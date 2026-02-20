@@ -1,0 +1,57 @@
+<html>
+  <head>
+	<style>
+	  body {
+		  text-align: center;
+		  background-color: darkkhaki;
+		  padding: 2em;
+		  display: inline-block;
+	  }
+	  h1 {
+		  color: black;
+		  font-size: 3em;
+	  }
+	  a {
+		  font-size: 2em;
+	  }
+	  table {
+		  display: inline-block;
+	  }
+	</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ESP32-C5 LED Control</title>
+  </head>
+  <body>
+	<h1>RGB Control</h1>
+	<table>
+	  <tr>
+		<td> <label for="r" style="color: red;"> Red: </label> </td>
+		<td> <input type="range" id="r" min="0" max="255" onchange="sendColor()"> </td>
+	  </tr>
+	  <tr>
+		<td> <label for="g" style="color: green;"> Green: </label> </td>
+		<td> <input type="range" id="g" min="0" max="255" onchange="sendColor()"> </td>
+	  </tr>
+	  <tr>
+		<td> <label for="b" style="color: blue;"> Blue: </label> </td>
+		<td> <input type="range" id="b" min="0" max="255" onchange="sendColor()"> </td>
+	  </tr>
+	</table>
+	<br> <br>
+	<a href='/'>Back</a><br>
+	<script>
+	  function sendColor() {
+		const r = document.getElementById('r').value;
+		const g = document.getElementById('g').value;
+		const b = document.getElementById('b').value;
+		
+		fetch('/set_color', {
+		  method: 'POST',
+		  body: `r=${r}&g=${g}&b=${b}`,
+		  headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+		});
+	  }
+	</script>
+  </body>
+</html>

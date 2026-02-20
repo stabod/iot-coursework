@@ -1,0 +1,56 @@
+<html>
+  <head>
+	<style>
+	  body {
+		  text-align: center;
+		  background-color: darkkhaki;
+		  padding: 2em;
+		  display: inline-block;
+	  }
+	  h1 {
+		  color: black;
+		  font-size: 3em;
+	  }
+	  a {
+		  font-size: 2em;
+	  }
+	  .song-btn {
+		  padding: 1em;
+		  margin: 0.5em;
+		  text-align: center;
+		  font-weight: bold;
+		  font-size: 1em;
+		  display: inline-flex;
+	  }
+	</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ESP32-C5 Music Control</title>
+  </head>
+  <body>
+	<h1> Music Control </h1>
+	<button class="song-btn" type="button" data-id="0">Ding Dong</button>
+	<button class="song-btn" type="button" data-id="1">Welcoming</button>
+	<button class="song-btn" type="button" data-id="2">Westminster</button><br>
+	<button class="song-btn" type="button" data-id="3">Sweet Child</button>
+	<button class="song-btn" type="button" data-id="4">E1M1</button>
+	<button class="song-btn" type="button" data-id="5">Zankoku</button>
+	<button class="song-btn" type="button" data-id="6">Bad Apple</button>
+	<br> <br>
+	<a href='/'>Back</a><br>
+	<script>
+	  function sendId() {
+		const songId = this.getAttribute('data-id');
+		fetch('/set_song', {
+		  method: 'POST',
+		  body: `id=${songId}`,
+		  headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+		});
+	  }
+	  
+	  document.querySelectorAll('.song-btn').forEach(button => {
+		button.addEventListener('click', sendId)})
+	</script>
+	
+  </body>
+</html>
