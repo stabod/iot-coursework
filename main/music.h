@@ -6,7 +6,7 @@ typedef struct {
   int ms;
 } note;
 
-const note bell1 = {
+const note bell1[] = {
 	{329, 1000}, {261, 1000}, {0, 0}
 };
 
@@ -57,18 +57,7 @@ const note bad_apple[] = {
 };
 
 const note* music_lookup[] = { bell1, bell2, westminster, sweet_child, e1m1, zankoku, bad_apple };
-const int music_size = sizeof(music_lookup) / sizeof(music_lookup[0]);
+const uint8_t music_size = sizeof(music_lookup) / sizeof(music_lookup[0]);
 
 #endif /* MUSIC_H */
-
-
-
-
-
-
-
-
-
-
-
 
