@@ -2,8 +2,8 @@
 #define MUSIC_H
 
 typedef struct {
-  int hertz;
-  int ms;
+  uint32_t hertz;
+  uint32_t ms;
 } note;
 
 const note bell1[] = {
@@ -19,9 +19,17 @@ const note westminster[] = {
 	{369, 500}, {415, 500}, {329, 1000}, {0, 0}
 };
 
+const note nokia[] = {
+	{659, 270}, {587, 270}, {369, 541}, {415, 541}, {554, 270},
+	{493, 270}, {293, 541}, {329, 541}, {493, 270}, {440, 270},
+	{277, 541}, {329, 541}, {440, 1083}, {0, 0}
+};
+
 const note sweet_child[] = {
 	{554, 270}, {1108, 270}, {830, 270}, {739, 270}, {1479, 270},
-	{830, 270}, {1396, 270}, {830, 270}, {0, 0}
+	{830, 270}, {1396, 270}, {830, 270}, {554, 270}, {1108, 270},
+	{830, 270}, {739, 270}, {1479, 270}, {830, 270}, {1396, 270},
+	{830, 270}, {0, 0}
 };
 
 const note e1m1[] = {
@@ -30,8 +38,7 @@ const note e1m1[] = {
 	{109, 114}, {164, 114}, {109, 114}, {109, 114}, {155, 114},
 	{164, 114}, {109, 114}, {109, 114}, {219, 114}, {109, 114},
 	{109, 114}, {195, 114}, {109, 114}, {109, 114}, {174, 114},
-	{109, 114}, {109, 114}, {164, 114}, {109, 114}, {109, 114},
-	{155, 458}, {0, 0}
+	{109, 114}, {109, 114}, {155, 458}, {0, 0}
 };
 
 const note zankoku[] = {
@@ -56,8 +63,8 @@ const note bad_apple[] = {
 	{293, 541}, {329, 541}, {219, 1083}, {0, 0}
 };
 
-const note* music_lookup[] = { bell1, bell2, westminster, sweet_child, e1m1, zankoku, bad_apple };
-const uint8_t music_size = sizeof(music_lookup) / sizeof(music_lookup[0]);
+const note* music_lookup[] = { bell1, bell2, westminster, nokia, sweet_child, e1m1, zankoku, bad_apple };
+const size_t music_size = sizeof(music_lookup) / sizeof(music_lookup[0]);
 
 #endif /* MUSIC_H */
 

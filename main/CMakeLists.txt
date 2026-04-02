@@ -1,4 +1,15 @@
-idf_component_register(SRCS "IoT-coursework.c" "wifi_ap.c" "http_srv.c" "led_control.c" "hardware.c"
-					PRIV_REQUIRES esp_wifi nvs_flash esp_http_server esp_driver_gpio esp_driver_ledc esp_timer
-                    INCLUDE_DIRS "."
-					EMBED_FILES "index.html" "led.html" "music.html")
+idf_component_register(
+	SRCS
+		"src/IoT-coursework.c"
+		"src/wifi_ap.c"
+		"src/http_srv.c"
+		"src/hardware.c"
+	PRIV_REQUIRES
+		esp_wifi nvs_flash esp_http_server esp_driver_gpio esp_driver_ledc esp_timer led_strip
+	INCLUDE_DIRS
+		"include"
+	EMBED_FILES
+		"web/index.html"
+		"web/led.html"
+		"web/music.html"
+)

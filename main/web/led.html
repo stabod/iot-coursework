@@ -3,7 +3,7 @@
 	<style>
 	  body {
 		  text-align: center;
-		  background-color: darkkhaki;
+		  background-color: darkgreen;
 		  padding: 2em;
 		  display: inline-block;
 	  }
@@ -14,8 +14,11 @@
 	  a {
 		  font-size: 2em;
 	  }
-	  table {
+	  .sliders {
 		  display: inline-block;
+		  background-color: aliceblue;
+		  border: solid;
+		  border-color: black;
 	  }
 	</style>
 	<meta charset="UTF-8">
@@ -24,7 +27,7 @@
   </head>
   <body>
 	<h1>RGB Control</h1>
-	<table>
+	<table class="sliders">
 	  <tr>
 		<td> <label for="r" style="color: red;"> Red: </label> </td>
 		<td> <input type="range" id="r" min="0" max="255" onchange="sendColor()"> </td>

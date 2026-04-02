@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "esp_log.h"
 #include "esp_http_server.h"
-#include "led_control.h"
+#include "hardware.h"
 
 static const char *TAG = "HTTP_SRV";
 
@@ -15,7 +15,7 @@ extern const uint8_t music_html_start[] asm("_binary_music_html_start");
 extern const uint8_t music_html_end[] asm("_binary_music_html_end");
 
 volatile uint8_t current_song_idx = 0;
-extern uint8_t music_size;
+extern const uint8_t music_size;
 
 esp_err_t get_index(httpd_req_t *req) {
   const size_t index_html_len = index_html_end - index_html_start;
@@ -94,7 +94,6 @@ void start_http_srv(void) {
   httpd_handle_t server = NULL;
 
   if (httpd_start(&server, &config) == ESP_OK) {
-	init_led();
 	httpd_register_uri_handler(server, &uri_index);
 	httpd_register_uri_handler(server, &uri_led);
 	httpd_register_uri_handler(server, &uri_music);

@@ -3,7 +3,7 @@
 	<style>
 	  body {
 		  text-align: center;
-		  background-color: darkkhaki;
+		  background-color: darkgreen;
 		  padding: 2em;
 		  display: inline-block;
 	  }
@@ -20,7 +20,10 @@
 		  text-align: center;
 		  font-weight: bold;
 		  font-size: 1em;
-		  display: inline-flex;
+	  }
+	  .buttonlist {
+		  display: flex;
+		  flex-direction: column;
 	  }
 	</style>
 	<meta charset="UTF-8">
@@ -29,13 +32,16 @@
   </head>
   <body>
 	<h1> Music Control </h1>
-	<button class="song-btn" type="button" data-id="0">Ding Dong</button>
-	<button class="song-btn" type="button" data-id="1">Welcoming</button>
-	<button class="song-btn" type="button" data-id="2">Westminster</button><br>
-	<button class="song-btn" type="button" data-id="3">Sweet Child</button>
-	<button class="song-btn" type="button" data-id="4">E1M1</button>
-	<button class="song-btn" type="button" data-id="5">Zankoku</button>
-	<button class="song-btn" type="button" data-id="6">Bad Apple</button>
+	<div class="buttonlist">
+	  <button class="song-btn" type="button" data-id="0">Ding Dong</button>
+	  <button class="song-btn" type="button" data-id="1">Welcoming</button>
+	  <button class="song-btn" type="button" data-id="2">Westminster</button>
+	  <button class="song-btn" type="button" data-id="3">Nokia</button>
+	  <button class="song-btn" type="button" data-id="4">Sweet Child</button>
+	  <button class="song-btn" type="button" data-id="5">E1M1</button>
+	  <button class="song-btn" type="button" data-id="6">Zankoku</button>
+	  <button class="song-btn" type="button" data-id="7">Bad Apple</button>
+	</div>
 	<br> <br>
 	<a href='/'>Back</a><br>
 	<script>
